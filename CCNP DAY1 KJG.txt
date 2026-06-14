@@ -1,0 +1,365 @@
+https://github.com/kjgccnp1010/devop
+https://github.com/kjgccnp1010/CCNPent26/blob/main/README.md
+https://github.com/kjgccnp1010/ENCORCLASS/edit/main/DAY1-Encor-SirRob.txt
+
+==================================
+
+need to memorize trunking - exam
+
+
+
+Int Range fa0/10-12
+ channel-group 1 mode active
+ channel-protocol Lacp
+ do sh etherchannel summary
+ do sh int po1 | inc BW
+
+
+elastic.co
+
+suricata.io
+
+pnig www.cia.gov
+
+
+
+
+===========
+
+
+vm ware
+root 
+C1sc0123
+
+=======================
+
+login to browse
+
+http://208.8.8.133:5601/login?next=%2F
+admin
+C1sc0123
+
+
+Fw 1k
+small
+pass
+pass
+
+
+========================
+
+configuration csr1000 vm
+
+conf t
+int g1
+ip addr dhcp
+no shut
+end
+
+======================
+
+conf t
+loggin on
+logging host 208.8.8.133 transport udp port 9001
+logging trap informational
+end
+
+
+ctrl + atl - to move from pc desktop
+
+
+vm - settings - network adpater - NAT - to get ip address
+
+208.8.8.70
+
+
+======================
+
+
+conf t
+
+line vty 0 14
+transport input all
+exec-timeout 0
+
+
+=========================
+
+001a.070a.bd5f
+
+001a.0711.561e
+
+
+==
+JSON - CODE	
+event -description in exam
+
+
+---------------------------
+FW1
+config t
+login on-failure log
+login on-success log
+end
+
+- to check the LOGIN logs
+
+=============================
+
+conf t
+access-list 100 deny ip any host 208.8.8.70 log
+access-list 100 permit ip any any
+interface g1
+ip acess-group 100 in
+end
+
+to deny ping and it will disconnect your crt
+
+============================
+
+to revert back
+
+conf t
+int g0/0
+no ip access-group 100 in
+end
+
+
+==============
+
+LINE 181 - 199
+
+265
+
+277
+================================
+
+AFTER LUNCH
+
+EXAM LABS NEED TO CHECK - NEED TO STUDY
+
+1. NETFLOW
+
+CORE
+STP
+RSTP
+MSTP
+EIGRP V 4
+EIGRP V 6
+ETHERCHANNEL
+BGP
+ETHERCHANNEL
+OSPF
+IPV4
+IPV6
+BGP
+IPSLA- LOAD BALANDCER
+
+
+
+==============
+
+CISCO CATALYSY CENTER - SIYA NA MACONFIGURE
+
+CISCO DNA CENTER
+
+
+==========
+
+NEED TO LEARN
+
+CISCO DNA
+
+postman account create
+==============
+
+AUTOMATION
+
+config t
+int gi 2
+no shut
+ip add 192.168.102.11 255.255.255.0
+line vty 0 14
+exec-timeout 0 0
+transport input all
+iox
+interface GigabitEthernet1
+ip address dhcp
+ip nat outside
+no shut
+exit
+!
+interface VirtualPortGroup0
+ip address 192.168.35.1 255.255.255.0
+ip nat inside
+exit
+!
+ip nat inside source list GS_NAT_ACL interface GigabitEthernet1 overload
+ip access-list standard GS_NAT_ACL
+permit 192.168.0.0 0.0.255.255
+!
+app-hosting appid guestshell
+ app-vnic gateway1 virtualportgroup 0 guest-interface 0
+    guest-ipaddress 192.168.35.3 netmask 255.255.255.0	
+	app-default-gateway 192.168.35.1  guest-interface 0 
+	name-server0 1.1.1.1
+ app-resource profile custom 
+   cpu 1500 
+   memory 512
+   persist-disk 1000
+end
+
+
+--------------
+
+ANG TUNAY NA PC PWDE KA VM  - matakaw sa ram and CPU - 4gb
+------ setup docker container - 40mb
+
+========
+
+#guestshell enable - t0 enable 
+
+type sa linux
+#guestshell run bash
+
+type sa python
+#guestshell run python3
+
+
+
+linux
+
+
+cd /etc/yum.repos.d/
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+yum repolist
+yum update -y
+
+
+
+====================
+
+
+yum install -y nmap
+yum update -y
+yum install -y vim
+yum install -y nano
+
+
+-
+
+dir
+dir bootflash:
+cd guest-share
+no file driector
+
+
+---------------
+linux
+cd ~ 
+
+cd bootflash
+- dir
+
+
+cd guest-share/
+touch gawaloop1.py
+dir
+
+
+==============
+
+
+alias exec bp show ip int breif | exc down
+
+alias exec bp show ip int brief
+
+===============
+
+momintor me
+
+terminal monitor
+.
+
+
+
+event manager run siraloop
+event manager run gawaloop
+
+==========================
+
+
+linux
+
+
+dir
+
+cd bootflash
+
+touch dhdcpserver.py
+nano dhcpserver.py
+cat dhcpserver.py
+
+
+i
+CTRL 0
+CTRL X
+
+guestshell run python3 /bootflash/guest-share/dhcpserver.py
+
+
+cd /root
+ls
+cd /
+cd /root
+
+cd guest-share/
+
+touch dhdcpserver.py
+nano dhcpserver.py
+
+
+=
+
+mkdir kaisr
+cd kaisr
+
+
+https://git-scm.com/install/windows
+
+
+visual studio
+fie - open folder - open kais
+new file cofifgloop.json
+
+
+====================
+
+
+{
+    "key1":"value1",
+    "key2":"value2",
+    "key3":"value3",
+    "key4":"value4",
+    "key5":"value5",
+    "key6":"value6"
+}
+
+
+
+cd /
+cd bootflash
+ 
+ls
+cd guest-share/
+yum install -y nano
+touch gawaloop.py
+nano gawaloop.py
+cat gawaloop.py
+
+
+======================
+
+ASSIGMENT 
+
